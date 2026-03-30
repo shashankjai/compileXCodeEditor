@@ -1,0 +1,302 @@
+/* Import variables to match Header.css if possible, or redefine here */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --professional-dark-bg: #0f172a; /* Deep dark blue for the hero section */
+  --text-white: #f8fafc;
+  --text-gray: #94a3b8;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+}
+
+.landingContainer {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--professional-dark-bg);
+  background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 60%);
+  color: var(--text-white);
+  overflow: hidden;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.landingContainer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Background Blobs (Atmosphere) --- */
+.blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  opacity: 0.4;
+  filter: blur(80px); /* Creates a soft glow effect */
+  z-index: 0;
+  animation: float 10s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.blob1 {
+  top: -100px;
+  left: -100px;
+  background: var(--primary-color);
+  animation-delay: 0s;
+}
+
+.blob2 {
+  bottom: -100px;
+  right: -100px;
+  background: var(--secondary-color);
+  animation-delay: 5s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, 50px); }
+}
+
+/* --- Floating Particles (Code Symbols) --- */
+.floating-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.15);
+  animation: floatParticle 15s infinite linear;
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* --- Main Content --- */
+.landingContent {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 900px;
+  padding: 2rem;
+}
+
+/* Badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--glass-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(5px);
+  animation: fadeInDown 1s ease forwards 0.2s;
+  opacity: 0;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981; /* Green for "Live" */
+  border-radius: 50%;
+  box-shadow: 0 0 10px #10b981;
+}
+
+/* Title */
+.title-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.main-title {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  background: linear-gradient(to right, #ffffff, #cbd5e1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInUp 1s ease forwards 0.4s;
+  opacity: 0;
+}
+
+.main-title .highlight {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Tagline */
+.tagline {
+  font-size: 1.25rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 1s ease forwards 0.6s;
+  opacity: 0;
+}
+
+/* Highlighting - Normal Weight, No Underline */
+.tagline .highlight {
+  color: white; 
+  font-weight: 400; /* Normal weight (Not Bold) */
+}
+
+/* Buttons (Matching Header Style) */
+.cta-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease forwards 0.8s;
+  opacity: 0;
+}
+
+.cta-button {
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.cta-button.primary {
+  background: var(--primary-gradient);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.cta-button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-button.secondary:hover {
+  border-color: white;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Tech Stack */
+.tech-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: fadeIn 1.5s ease forwards 1.2s;
+  opacity: 0;
+}
+
+.tech-icons {
+  display: flex;
+  gap: 1.5rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Scroll Indicator - CENTERED */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%; /* Centers horizontally */
+  transform: translateX(-50%); /* Corrects the offset */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-gray);
+  z-index: 10;
+  /* Using specific animation to preserve centering */
+  animation: fadeInUpCentered 1s ease forwards 1.5s;
+  opacity: 0;
+}
+
+.mouse {
+  width: 26px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.wheel {
+  width: 4px;
+  height: 8px;
+  background: white;
+  border-radius: 2px;
+  animation: scrollWheel 2s infinite;
+}
+
+@keyframes scrollWheel {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(15px); opacity: 0; }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Specific animation for scroll indicator to keep it centered */
+@keyframes fadeInUpCentered {
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 0.7; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-title { font-size: 2.5rem; }
+  .tagline { font-size: 1rem; }
+  .cta-group { flex-direction: column; width: 100%; }
+  .cta-button { width: 100%; text-align: center; }
+  .blob { width: 300px; height: 300px; }
+}

@@ -1,0 +1,440 @@
+/* Footer.css */
+
+.modern-footer {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    overflow: hidden;
+    padding: 3rem 0 1.5rem;
+    margin-top: auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modern-footer.footer-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animated wave background */
+.footer-waves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,170.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: wave 15s linear infinite;
+}
+
+.wave-1 {
+    opacity: 0.3;
+    animation: wave 12s linear infinite;
+    bottom: 0;
+}
+
+.wave-2 {
+    opacity: 0.2;
+    animation: wave 18s linear infinite reverse;
+    bottom: -20px;
+}
+
+.wave-3 {
+    opacity: 0.1;
+    animation: wave 20s linear infinite;
+    bottom: -40px;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1);
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.8);
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1);
+    }
+}
+
+/* Footer content */
+.footer-content {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Decorative elements */
+.footer-decoration {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.floating-heart,
+.floating-code {
+    animation: float 3s ease-in-out infinite;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.floating-heart {
+    animation-delay: 0s;
+}
+
+.floating-code {
+    animation-delay: 0.5s;
+}
+
+.heart-pulse {
+    font-size: 1.5rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    display: inline-block;
+}
+
+.code-bracket,
+.code-slash {
+    color: #64ffda;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.code-bracket:first-child {
+    animation: blink 2s infinite;
+}
+
+.code-slash {
+    animation: blink 2s infinite 0.3s;
+}
+
+.code-bracket:last-child {
+    animation: blink 2s infinite 0.6s;
+}
+
+/* Copyright wrapper */
+.copyright-wrapper {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.copyright-wrapper:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(100, 255, 218, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.copyright-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.copyright-symbol {
+    font-size: 1.2rem;
+    color: #64ffda;
+}
+
+.year {
+    font-weight: 600;
+    color: #64ffda;
+}
+
+.divider {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.2rem;
+}
+
+.developed-text {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.heart-emoji {
+    display: inline-block;
+    font-size: 1.2rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    margin: 0 0.2rem;
+}
+
+.by-text {
+    color: rgba(255, 255, 255, 0.6);
+    margin-right: 0.3rem;
+}
+
+/* Footer link styling */
+.footer-link {
+    position: relative;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.link-text {
+    color: #64ffda;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.link-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #64ffda, #00bcd4);
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover .link-underline {
+    width: 100%;
+}
+
+.footer-link:hover .link-text {
+    transform: translateX(-2px);
+    color: #fff;
+}
+
+.link-icon {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover .link-icon {
+    transform: translate(2px, -2px);
+    color: #64ffda;
+}
+
+/* Social links */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(100, 255, 218, 0.3), transparent);
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%);
+}
+
+.social-link:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    border-color: #64ffda;
+}
+
+.social-icon {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.social-link:hover .social-icon {
+    color: #64ffda;
+    transform: scale(1.1);
+}
+
+/* Footer bottom bar */
+.footer-bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #64ffda 20%, 
+        #00bcd4 50%, 
+        #64ffda 80%, 
+        transparent 100%
+    );
+    animation: gradientShift 3s linear infinite;
+    background-size: 200% 100%;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .copyright-text {
+        font-size: 0.9rem;
+        flex-direction: column;
+        gap: 0.3rem;
+        text-align: center;
+    }
+
+    .copyright-wrapper {
+        padding: 1rem;
+        border-radius: 30px;
+    }
+
+    .footer-decoration {
+        gap: 1rem;
+    }
+
+    .divider {
+        display: none;
+    }
+
+    .wave {
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modern-footer {
+        padding: 2rem 0 1rem;
+    }
+
+    .copyright-wrapper {
+        width: 90%;
+    }
+
+    .social-links {
+        gap: 0.5rem;
+    }
+
+    .social-link {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Dark mode optimization */
+@media (prefers-color-scheme: dark) {
+    .modern-footer {
+        background: linear-gradient(135deg, #0a0a1a 0%, #0d1117 100%);
+    }
+}
+
+/* Print styles */
+@media print {
+    .modern-footer {
+        background: none;
+        color: black;
+        padding: 1rem 0;
+    }
+
+    .footer-waves,
+    .footer-decoration,
+    .social-links,
+    .footer-bottom-bar {
+        display: none;
+    }
+}
